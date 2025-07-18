@@ -1,0 +1,23 @@
+{
+    "car1" : {
+        "threshold" : 0
+    },
+    "car2" : {
+        "threshold" : 0
+    },
+    "clotheswasher1" : {
+        "threshold" : 0
+    },
+    "dishwasher1" : {
+        "threshold" : 0
+    },
+    "drye1" : {
+        "threshold" : 0
+    },
+    "refrigerator1" : {
+        "threshold" : 0
+    },
+    "microwave1" : {
+        "threshold" : 0
+    }
+}

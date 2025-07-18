@@ -1,0 +1,153 @@
+{
+    "resnet_seq2seq" : {
+        "input_size" : 1,
+        "output_size" : 1,
+        "filters" : [30, 5, 10, 30, 30, 30, 30],
+        "kernels" : [15, 5, 7, 3],
+        "filter" : 50,
+        "hidden_size" : 64,
+        "epochs" : 50,
+        "batch_size" : 512,
+        "learning_rate" : 0.001,
+        "split_date" : "2018-08-31 23:00:00",
+        "data_path" : "Dataset/pecan_street/austin/house_energy_compressed/",
+        "num_layers" : 6,
+        "lag_size" : 5,
+        "train" : [661],
+        "test" : [661],
+        "col" : 1,
+        "lag_sizes" : [20, 30, 20, 6, 30, 30, 30],
+        "model_type" : "seq2seq"
+    },
+    "unetnilm" : {
+        "input_size" : 1,
+        "output_size" : 7,
+        "hidden_size" : 128,
+        "epochs" : 30,
+        "batch_size" : 256,
+        "learning_rate" : 0.001,
+        "split_date" : "2018-08-31 23:00:00",
+        "data_path" : "Dataset/pecan_street/austin/house_energy_compressed/",
+        "num_layers" : 3,
+        "lag_size" : 30,
+        "train" : [661],
+        "test" : [661],
+        "col" : 1,
+        "start_col" : 0,
+        "end_col" : 7,
+        "model_type" : "regression",
+        "single_output" : true,
+        "quantiles" : [0.0025,0.1, 0.5, 0.9, 0.975]
+    },
+    "EVSense" : {
+        "input_size" : 1,
+        "output_size" : 1,
+        "hidden_size" : 64,
+        "epochs" : 50,
+        "batch_size" : 512,
+        "learning_rate" : 0.001,
+        "split_date" : "2018-08-31 23:00:00",
+        "data_path" : "Dataset/pecan_street/austin/house_energy_compressed/",
+        "num_layers" : 3,
+        "lag_size" : 20,
+        "train" : [661],
+        "test" : [661],
+        "col" : 3,
+        "model_type" : "classification",
+        "single_output" : true
+    },
+    "cnn" : {
+        "input_size" : 1,
+        "output_size" : 1,
+        "hidden_size" : 128,
+        "epochs" : 50,
+        "batch_size" : 512,
+        "learning_rate" : 0.001,
+        "split_date" : "2018-08-31 23:00:00",
+        "data_path" : "Dataset/pecan_street/austin/house_energy_compressed/",
+        "num_layers" : 3,
+        "lag_size" : 20,
+        "train" : [661],
+        "test" : [661],
+        "col" : 3,
+        "model_type" : "seq2point",
+        "single_output" : true,
+        "input_cols": ["local_15min", "total_power_consumption"],
+        "output_cols": ["ev_car", "clotheswasher1", "refrigerator1", "microwave1"],
+        "output_cols_without_ev": ["clotheswasher1", "refrigerator1", "microwave1"],
+        "output_col_num": 12,
+        "lag_sizes" : [30, 25, 25, 25],
+        "lag_sizes_without_ev" : [30, 25, 30, 30],
+        "fc_layers_input" : [19684, 16404, 16404, 9844]
+    },
+    "vae" : {
+        "model" : "VAE",
+        "config" : 0,
+        "appliances" : ["refrigerator", "ev_car", "dishwasher", "clotheswasher", "air", "microwave", "others"],
+        "appliance" : "ev_car",
+        "run" : 10,
+        "training" : {
+            "batch_sizes" : [64, 64, 64, 64, 64, 64, 64],
+            "batch_size" : 32,
+            "epoch" : 100,
+            "lr" : 0.001,
+            "decay_steps" : 2,
+            "optimizer" : "rmsprop",
+            "patience" : 20,
+            "start_stopping" : 5,
+            "save_best" : 0,
+            "ratio_train" : 0.3,
+            "ratio_test" : 0,
+            "validation_split" : 0.2,
+            "S2P_strides" : 1
+        },
+        "dataset" : {
+            "name" : "ukdale",
+            "test" : {
+                "house" : [1],
+                "ratio" : [0.2]
+            },
+            "train" : {
+                "house" : [2, 5],
+                "ratio" : [1, 1]
+           }
+        },
+        "preprocessing" : {
+            "main_mean" : 0,
+            "main_std" : 1,
+            "app_mean" : 0,
+            "app_std" : 1,
+            "widths" : [128, 64, 64, 128, 64, 128, 64],
+            "widths_no_ev" : [64, 64, 64, 128, 64, 128, 64],
+            "widths_with_ev" : [128, 128, 128, 128, 64, 64, 64],
+            "strides_list" : [4, 4, 8, 8, 4, 16, 4],
+            "strides_list_no_ev" : [4, 4, 1, 8, 4, 12, 4],
+            "width" : 1024,
+            "strides" : 128
+        }
+    },
+    "residualnet" : {
+            "input_size" : 5,
+            "output_size" : 5,
+            "hidden_size" : 16,
+            "lag_size" : 50,
+            "lag_sizes" : {
+                "661": {
+                    "car1" : 100,
+                    "clotheswasher1": 100,
+                    "dishwasher1": 30,
+                    "refrigerator1": 15,
+                    "air1": 50,
+                    "furnace1": 100,
+                    "microwave1": 50
+                }
+            },
+            "batch_size" : 256,
+            "learning_rate" : 0.001,
+            "column" : 1,
+            "epochs" : 50
+        }
+
+        
+
+}

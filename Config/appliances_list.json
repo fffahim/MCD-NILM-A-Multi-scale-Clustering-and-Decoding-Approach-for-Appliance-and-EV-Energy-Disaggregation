@@ -1,0 +1,43 @@
+{
+    "appliances" : [{
+        "id" : 0,
+        "name" : "refrigerator"
+    },
+    {
+        "id" : 1,
+        "name" : "ev_car"
+    },
+    {
+        "id" : 2,
+        "name" : "dishwasher"
+    },
+    {
+        "id" : 3,
+        "name" : "clotheswasher"
+    },
+    {
+        "id" : 4,
+        "name" : "air"
+    },
+    {
+        "id" : 5,
+        "name" : "microwave"
+    },
+    {
+        "id" : 6,
+        "name" : "others"
+    }],
+    "appliances_without_ev" : [
+    {
+        "id" : 0,
+        "name" : "clotheswasher"
+    },
+    {
+        "id" : 1,
+        "name" : "dishwasher"
+    },
+    {
+        "id" : 2,
+        "name" : "microwave"
+    }]
+}
